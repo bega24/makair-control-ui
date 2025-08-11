@@ -18,6 +18,9 @@ widget_ids!(pub struct Ids {
   layout_footer,
   layout_texture_header,
 
+  example_container,
+  example_text,
+
   alarm_container,
   alarm_title_wrapper,
   alarm_title,

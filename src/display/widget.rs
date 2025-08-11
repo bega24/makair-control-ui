@@ -40,4 +40,5 @@ gen_widget_impls!(
     AdvancedSettings -> advanced_settings['a],
     ModeSettings -> mode_settings['a],
     ModeOverview -> mode_overview['a],
+    Example_text -> example_text['a],
 );

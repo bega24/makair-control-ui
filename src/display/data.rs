@@ -34,6 +34,7 @@ pub struct DisplayDataGraph<'a> {
     pub height: f64,
     pub data_pressure: &'a ChipData,
     pub data_flow: &'a ChipData,
+    pub data_swe: &'a ChipData,
     pub chip_state: &'a ChipState,
     pub machine_snapshot: &'a MachineStateSnapshot,
     pub plot_graphs: &'a mut (ConrodBackendReusableGraph, ConrodBackendReusableGraph),

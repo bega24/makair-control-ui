@@ -251,6 +251,18 @@ impl<'a> Screen<'a> {
             }));
     }
 
+    fn render_example_text(&mut self) {
+        self.widgets
+            .render(ControlWidgetType::Example_Text(example_text::Config {
+                container: self.ids.example_container,
+                text_id: self.ids.example_text,
+                text: "Mon texte d'exemple".to_string(),
+                width: 300.0,
+                height: 50.0,
+            }));
+    }
+
+
     fn render_layout(&mut self, layout_data: DisplayDataLayout) {
         self.widgets
             .render(ControlWidgetType::Layout(layout::Config {

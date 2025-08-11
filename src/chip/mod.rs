@@ -156,6 +156,7 @@ pub struct Chip {
     pub last_tick: u64,
     pub data_pressure: ChipData,
     pub data_flow: ChipData,
+    pub data_swe: ChipData,
     pub last_machine_snapshot: MachineStateSnapshot,
     pub last_data_snapshot: Option<DataSnapshot>,
     pub ongoing_alarms: HashMap<AlarmCode, AlarmPriority>,
@@ -194,6 +195,7 @@ impl Chip {
             last_tick: 0,
             data_pressure: ChipData::new(),
             data_flow: ChipData::new(),
+            data_swe: ChipData::new(),
             last_machine_snapshot: MachineStateSnapshot::default(),
             last_data_snapshot: None,
             ongoing_alarms: HashMap::new(),
@@ -312,6 +314,7 @@ impl Chip {
 
         self.clean_expired_data_pressure_from_time(time_now);
         self.clean_expired_data_flow_from_time(time_now);
+        self.clean_expired_data_swe_from_time(time_now);
     }
 
     pub fn init_settings_receiver(&mut self) -> Receiver<ControlMessage> {
@@ -563,6 +566,10 @@ impl Chip {
 
     fn clean_expired_data_flow_from_time(&mut self, front_time: DateTime<Utc>) {
         gen_clean_expired_data_from_time_generic!(self, data_flow, front_time);
+    }
+
+    fn clean_expired_data_swe_from_time(&mut self, front_time: DateTime<Utc>) {
+        gen_clean_expired_data_from_time_generic!(self, data_swe, front_time);
     }
 
     fn reset_data(&mut self) {
