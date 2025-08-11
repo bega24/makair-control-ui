@@ -253,10 +253,11 @@ impl<'a> Screen<'a> {
 
     fn render_example_text(&mut self) {
         self.widgets
-            .render(ControlWidgetType::Example_Text(example_text::Config {
+            .render(ControlWidgetType::Example_text(example_text::Config {
+                parent: self.ids.example_text,
                 container: self.ids.example_container,
-                text_id: self.ids.example_text,
-                text: "Mon texte d'exemple".to_string(),
+                ids: self.ids.example_text,
+                text: "Mon texte d'exemple",
                 width: 300.0,
                 height: 50.0,
             }));
